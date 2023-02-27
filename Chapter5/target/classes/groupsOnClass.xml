@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<suite name="suitename">
+<!--    <test name="runall">-->
+<!--        <classes>-->
+<!--            <class name="com.test.testng.groups.groupsOnClass1"/>-->
+<!--            <class name="com.test.testng.groups.groupsOnClass2"/>-->
+<!--            <class name="com.test.testng.groups.groupsOnClass3"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+    <test name="onlyrunstudent">
+        <groups>
+            <run>
+                <include name="class"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.test.testng.groups.groupsOnClass1"/>
+            <class name="com.test.testng.groups.groupsOnClass2"/>
+            <class name="com.test.testng.groups.groupsOnClass3"/>
+        </classes>
+    </test>
+
+</suite>
