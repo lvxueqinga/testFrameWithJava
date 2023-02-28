@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ parallel：
+    methods 级别： 所有用例都可以在不同的线程下去执行
+    test级别 ： 不同的test tag下 可以在不同的线程下去执行； 相同的test tag下 只能在相同的线程下去执行
+    classs级别： 不同的class tag下 可以在不同的线程下去执行； 相同的class tag下 只能在相同的线程下去执行
+
+
+ thread-count： 代表最大并发线程数
+ xml这种方式不能指定线程池，只有方法上才能指定线程池
+
+
+ -->
+
+
+<suite name="multithread" parallel="methods" thread-count="2">
+    <test name="multitest">
+        <classes>
+
+            <class name="com.test.testng.multiThread.MultiThreadOnXml"/>
+        </classes>
+    </test>
+</suite>
