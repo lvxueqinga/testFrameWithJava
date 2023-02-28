@@ -18,7 +18,8 @@
 
 <!--  listeners 监听器 用哪个类去监听  -->
     <listeners>
-        <listener class-name="com.vimalselvam.testng.listener.ExtentTestNgFormatter"/>
+<!--        <listener class-name="com.vimalselvam.testng.listener.ExtentTestNgFormatter"/>-->
+        <listener class-name="test.extentdemo.ExtentTestNGIReporterListenerOld"/>
 
 
     </listeners>
