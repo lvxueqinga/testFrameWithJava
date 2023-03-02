@@ -1,0 +1,8 @@
+下载jar包 地址 https://repo1.maven.org/maven2/com/github/dreamhead/moco-runner/0.11.0/ 下最大的
+
+终端启动框架：
+java -jar ./moco-runner-0.11.0-standalone.jar http -p 8888 -c startup1.json
+
+浏览器访问：
+带请求的get示例
+http://localhost:8888/getwithpara?name=huhansan&age=18
