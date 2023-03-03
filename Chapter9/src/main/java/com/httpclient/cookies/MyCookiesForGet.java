@@ -28,6 +28,7 @@ public class MyCookiesForGet {
 
     private String url ;
     private ResourceBundle bundle;
+    private  CookieStore cookieStore; // 用来存储cookie信息
 
     @BeforeTest
     public void  beforetest(){
@@ -50,13 +51,33 @@ public class MyCookiesForGet {
 
 
         //获取cookies信息
-        CookieStore cookieStore = client.getCookieStore();
+        this.cookieStore = client.getCookieStore();
         List<Cookie> cookies = cookieStore.getCookies();
         for(Cookie c : cookies){
             String name = c.getName();
             String value = c.getValue();
             System.out.println("name=" + name +" , value=" + value);
         }
+
+    }
+
+
+    @Test(dependsOnMethods = {"testgetcookies"})
+    public void testwithcookies() throws IOException {
+        String result ;
+        HttpGet get = new HttpGet(this.url + bundle.getString("getwithcookies.url"));
+        DefaultHttpClient client = new DefaultHttpClient();
+
+        //设置cookies信息
+        client.setCookieStore(this.cookieStore);
+
+        HttpResponse response = client.execute(get);
+        result = EntityUtils.toString(response.getEntity());
+        System.out.println(result);
+
+        int statuscode = response.getStatusLine().getStatusCode();
+        System.out.println(" statuscode "+statuscode);
+
 
     }
 }
