@@ -1,4 +1,20 @@
 [
+
+  {
+    "description": "会返回cookies信息的get请求",
+    "request": {
+      "uri": "/getcookies",
+      "method": "get"
+    },
+    "response": {
+      "text": "恭喜获得cookies信息成功",
+      "cookies": {
+        "login": "true",
+        "status": "10000"
+      }
+    }
+}
+  ,
   {
     "description": "带cookies信息的get请求",
     "request": {
