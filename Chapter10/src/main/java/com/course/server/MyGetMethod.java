@@ -1,12 +1,12 @@
 package com.course.server;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -55,6 +55,39 @@ public class MyGetMethod {
 
         }
         return "访问失败 无cookies";
+    }
+
+    /**
+     * 需要携带参数才能访问的get请求
+     * 方式1： http://localhost:8080/get/with/param?start=1&end=10
+     * 模拟获取商品列表, 名称和价格
+     */
+
+    @RequestMapping(value = "/get/with/param",method = RequestMethod.GET)
+    public Map<String,Integer> getList1(@RequestParam Integer start, @RequestParam Integer end){
+
+        Map<String,Integer> mylist = new HashMap<>();
+        mylist.put("鞋",400);
+        mylist.put("杯子",40);
+        mylist.put("衬衫",100);
+        mylist.put("平板",4500);
+        return mylist;
+
+    }
+
+    /**
+     * 需要携带参数才能访问的get请求
+     * 方式2： http://localhost:8080/get/with/param//1/10
+     * 模拟获取商品列表, 名称和价格
+     */
+    @RequestMapping(value = "/get/with/param/{start}/{end}")
+    public Map<String,Integer> getList2(@PathVariable Integer start, @PathVariable Integer end){
+        Map<String,Integer> mylist = new HashMap<>();
+        mylist.put("鞋1",400);
+        mylist.put("杯子1",40);
+        mylist.put("衬衫1",100);
+        mylist.put("平板1",4500);
+        return mylist;
     }
 
 }
