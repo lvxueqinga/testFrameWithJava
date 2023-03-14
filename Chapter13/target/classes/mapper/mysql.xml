@@ -40,9 +40,7 @@
             <if test="null != permission and '' !=permission">
                 AND permission=#{permission}
             </if>
-            <if test="null != delete and '' !=delete">
-                AND delete=#{delete}
-            </if>
+
         </trim>
     </select>
 
@@ -63,9 +61,7 @@
             <if test="null != permission and '' !=permission">
                 permission=#{permission},
             </if>
-            <if test="null != delete and '' !=delete">
-                delete =#{delete},
-            </if>
+
         </trim>
         where id = #{id}
     </update>

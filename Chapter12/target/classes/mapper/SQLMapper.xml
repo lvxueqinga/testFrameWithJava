@@ -35,13 +35,13 @@
 
     <!--添加用户接口-->
     <select id="addUser" parameterType="com.course.model.AddUserCase" resultType="com.course.model.LoginUser">
-        select * from user where
-        userName=#{userName}
+        select * from loginuser where
+        username=#{username}
         and password=#{password}
         and sex=#{sex}
         and age=#{age}
-        and permission=#{permission}
-        and isDelete=#{isDelete};
+        and permission=#{permission};
+
 
     </select>
 
