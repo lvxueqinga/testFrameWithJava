@@ -17,6 +17,42 @@
                     <target>7</target>
                 </configuration>
             </plugin>
+
+<!--            打包插件开始 -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.1.0.RELEASE</version>
+                <configuration>
+                     <mainClass>com.course.Application</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>7</source>
+                    <target>7</target>
+                    <encoding>UTF-8</encoding>
+                    <compilerArguments>
+                        <extdirs>${project.basedir}/lib</extdirs>
+                    </compilerArguments>
+                </configuration>
+            </plugin>
+
+            <!--            打包插件结束， 可复用 只有mainClass需要改
+             打包命令 mvn clean package
+             运行jar命令 java -jar *.jar
+
+             -->
         </plugins>
     </build>
 

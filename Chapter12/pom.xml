@@ -76,4 +76,25 @@
 
     </dependencies>
 
+
+<!--    用于打包
+测试代码打包命令 mvn clean package
+-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.pligins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.7.1</version>
+                <configuration>
+                   <suiteXmlFiles>
+                       <suiteXmlFile>
+                           ./src/main/resources/testng.xml
+                       </suiteXmlFile>
+                   </suiteXmlFiles>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
